@@ -73,10 +73,23 @@ namespace Pokemons
 			return "Dark";
 		case Pokemons::Fairy:
 			return "Fairy";
-		default:
-			return "Uh oh :(";
 		}
 	}
+
+	class Attack
+	{
+	public:
+		string Name;
+		Type Type;
+		int Damage;
+
+		Attack(string _name, Pokemons::Type _type, int _damage)
+		{
+			Name = _name;
+			Type = _type;
+			Damage = _damage;
+		}
+	};
 
 	class Pokemon
 	{
@@ -84,25 +97,30 @@ namespace Pokemons
 		string Name;
 		Type Type;
 		int Health;
-		int Damage;
 
-		Pokemon(string _name, Pokemons::Type _type, int _health, int _damage)
+		Pokemon(string _name, Pokemons::Type _type, int _health)
 		{
 			Name = _name;
 			Type = _type;
 			Health = _health;
-			Damage = _damage;
 		}
 
-		void updateHealth(bool _positive, int _amount)
+		void updateHealth(char _operator, int _amount)
 		{
-			if (_positive)
+			switch (_operator)
 			{
+			case '+':
 				Health = Health + _amount;
-			}
-			else
-			{
+				break;
+			case '-':
 				Health = Health - _amount;
+				break;
+			case '*':
+				Health = Health * _amount;
+				break;
+			case '/':
+				Health = Health / _amount;
+				break;
 			}
 		}
 	};
