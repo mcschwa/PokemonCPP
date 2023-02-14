@@ -105,6 +105,15 @@ namespace Pokemons
 			Health = _health;
 		}
 
+		bool checkHealth()
+		{
+			if (Health <= 0)
+			{
+				return false;
+			}
+
+			return true;
+		}
 		void updateHealth(char _operator, int _amount)
 		{
 			switch (_operator)
@@ -123,5 +132,11 @@ namespace Pokemons
 				break;
 			}
 		}
+
+		void attackEnemy(Pokemon &_reciever)
+		{
+			_reciever.Health = _reciever.Health - 5;
+		}
+
 	};
 }
