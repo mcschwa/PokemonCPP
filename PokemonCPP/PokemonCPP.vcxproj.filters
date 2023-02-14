@@ -20,7 +20,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\Downloads\Pokemon.h">
+    <ClInclude Include="Pokemon.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
