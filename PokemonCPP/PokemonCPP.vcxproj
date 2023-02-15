@@ -130,7 +130,9 @@
     <ClCompile Include="PokemonCPP.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Pokemon.h" />
+    <ClInclude Include="Attacks.h" />
+    <ClInclude Include="Pokemons.h" />
+    <ClInclude Include="Types.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,60 +1,38 @@
 #pragma once
 #include <iostream>
-#include <array>
+#include "Types.h"
+#include "Attacks.h"
 
 using namespace std;
+using namespace Types;
+using namespace Attacks;
 
 namespace Pokemons
 {
-	enum Type
-	{
-		Normal,
-		Fire,
-		Water,
-		Grass,
-		Flying,
-		Fighting,
-		Poison,
-		Electric,
-		Ground,
-		Rock,
-		Psychic,
-		Ice,
-		Bug,
-		Ghost,
-		Steel,
-		Dragon,
-		Dark,
-		Fairy
-	};
-
-	class Attack
-	{
-	public:
-		string Name;
-		Type Type;
-		int Damage;
-
-		Attack(string _name, Pokemons::Type _type, int _damage)
-		{
-			Name = _name;
-			Type = _type;
-			Damage = _damage;
-		}
-	};
-
 	class Pokemon
 	{
 	public:
 		string Name;
-		Type Type;
+		Type Kind;
+		Type Weaknesses[1];
+		Type Resistances[1];
 		int Health;
 
-		Pokemon(string _name, Pokemons::Type _type, int _health)
+		Pokemon(string _name, Type _kind, Type _weaknesses[], Type _resistances[], int _health)
 		{
 			Name = _name;
-			Type = _type;
+			Kind = _kind;
 			Health = _health;
+
+			for (int i = 0; i < sizeof(_weaknesses); i++)
+			{
+				Weaknesses[i] = _weaknesses[i];
+			}
+
+			for (int i = 0; i < sizeof(_resistances); i++) 
+			{
+				Resistances[i] = _resistances[i];
+			}
 		}
 
 		bool checkHealth()
@@ -68,7 +46,7 @@ namespace Pokemons
 		}
 		void updateHealth(char _operator, int _amount)
 		{
-			switch (_operator)
+			switch (_operator) 
 			{
 			case '+':
 				Health = Health + _amount;

@@ -1,12 +1,14 @@
 #include <iostream>
-#include "Pokemon.h"
+#include "Pokemons.h"
+#include "Types.h"
+#include "Attacks.h"
 
 using namespace std;
 using namespace Pokemons;
+using namespace Types;
+using namespace Attacks;
 
 int main()
 {
-    Pokemon Charmender("Charmender", Fire, 45);
-    Pokemon Bulbasaur("Bulbasaur", Water, 50);
 
 }
