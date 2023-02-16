@@ -24,15 +24,6 @@ namespace Pokemons
 			Kind = _kind;
 			Health = _health;
 
-			for (int i = 0; i < sizeof(_weaknesses); i++)
-			{
-				Weaknesses[i] = _weaknesses[i];
-			}
-
-			for (int i = 0; i < sizeof(_resistances); i++) 
-			{
-				Resistances[i] = _resistances[i];
-			}
 		}
 
 		bool checkHealth()
@@ -49,16 +40,16 @@ namespace Pokemons
 			switch (_operator) 
 			{
 			case '+':
-				Health = Health + _amount;
+				Health += _amount;
 				break;
 			case '-':
-				Health = Health - _amount;
+				Health -= _amount;
 				break;
 			case '*':
-				Health = Health * _amount;
+				Health *= _amount;
 				break;
 			case '/':
-				Health = Health / _amount;
+				Health /= _amount;
 				break;
 			}
 		}

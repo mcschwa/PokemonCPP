@@ -10,5 +10,8 @@ using namespace Attacks;
 
 int main()
 {
+	Type CharmenderW[3] = { Water, Rock, Electric };
+	Type CharmenderR[3] = { Fire, Flying, Ground };
+	Pokemon Charmender("Charmender", Fire, CharmenderW, CharmenderR, 45);
 
 }
