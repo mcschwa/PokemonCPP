@@ -10,8 +10,6 @@ using namespace Attacks;
 
 namespace Pokemons
 {
-	fstream fileHandler;
-
 	class Pokemon
 	{
 	public:
@@ -23,7 +21,7 @@ namespace Pokemons
 		Attack* Attacks;
 
 		Pokemon();
-		Pokemon(string _name, Type _kind, int _health, Type _weaknesses[], Type _resistances[])
+		Pokemon(string _name, Type _kind, int _health, Type _weaknesses[], Type _resistances[], Attack _attacks[])
 		{
 			Name = _name;
 			Kind = _kind;
@@ -49,24 +47,40 @@ namespace Pokemons
 			Name = randomNames[rand() % 3];
 		}
 
-		void setType(Type _kind)
+		void setType(Type _kind = None)
 		{
+			if (_kind == None)
+			{
+				Kind = getRandomType();
+
+				return;
+			}
+
 			Kind = _kind;
 		}
 
-		void setRandomType()
+		void setWeaknesses(Type _weaknesses[] = NULL)
 		{
-			Kind = getRandomType();
+			if (_weaknesses == NULL)
+			{
+				_weaknesses[0] = getRandomType();
+				_weaknesses[1] = getRandomType();
+				_weaknesses[2] = getRandomType();
+			}
+
+			Weaknesses = _weaknesses;
 		}
 
-		void setWeaknesses()
+		void setResistances(Type _resistances[] = NULL)
 		{
+			if (_resistances == NULL)
+			{
+				_resistances[0] = getRandomType();
+				_resistances[1] = getRandomType();
+				_resistances[2] = getRandomType();
+			}
 
-		}
-
-		void setResistances()
-		{
-
+			Resistances = _resistances;
 		}
 
 		/*
@@ -148,15 +162,4 @@ namespace Pokemons
 			}
 		}
 	};
-
-	Pokemon createRandomPokemon()
-	{
-		Type randomW[3];
-		Type randomR[3];
-		Pokemon randomPokemon;
-		randomPokemon.setName();
-		randomPokemon.setRandomType();
-
-		return randomPokemon;
-	}
 }

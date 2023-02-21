@@ -15,6 +15,7 @@ namespace Attacks
 		Type Kind;
 		int Damage;
 
+		Attack();
 		Attack(string _name, Type _kind, int _damage)
 		{
 			Name = _name;

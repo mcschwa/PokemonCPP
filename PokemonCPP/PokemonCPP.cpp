@@ -11,8 +11,8 @@ using namespace Attacks;
 int main()
 {
 
-	Type CharmenderW[3] = { Water, Rock, Electric };
-	Type CharmenderR[3] = { Fire, Flying, Ground };
-	Pokemon Charmender("Charmender", Fire, 45, CharmenderW, CharmenderR);
+	Pokemon randomPokemon;
+	//createRandomPokemon(randomPokemon);
 
+	return 1;
 }
