@@ -11,8 +11,5 @@ using namespace Attacks;
 int main()
 {
 
-	Pokemon randomPokemon;
-	//createRandomPokemon(randomPokemon);
-
 	return 1;
 }

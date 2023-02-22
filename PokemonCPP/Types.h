@@ -7,7 +7,6 @@ namespace Types
 {
 	enum Type
 	{
-		None = -1,
 		Normal,
 		Fire,
 		Water,
