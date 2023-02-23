@@ -33,7 +33,26 @@ namespace Pokemons
 			Resistances = _resistances;
 			Attacks = _attacks;
 		}
-		
+
+		/*
+			SETTERS
+		*/
+
+		void setName(string _name)
+		{
+			Name = _name;
+		}
+
+		void setType(Type _kind)
+		{
+			Kind = _kind;
+		}
+
+		void setHealth(int _health)
+		{
+			Health = _health;
+		}
+
 		void updateHealth(char _operator, int _amount)
 		{
 			switch (_operator)
@@ -51,6 +70,11 @@ namespace Pokemons
 				Health /= _amount;
 				break;
 			}
+		}
+
+		void attackEnemy(Pokemon &_enemy, Attack _attack)
+		{
+
 		}
 	};
 }
