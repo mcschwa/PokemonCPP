@@ -72,18 +72,97 @@ namespace Pokemons
 			}
 		}
 
+		/*
+			GETTERS
+		*/
+
+		string getName()
+		{
+			return Name;
+		}
+
+		Type getKind()
+		{
+			return Kind;
+		}
+
+		int getHealth()
+		{
+			return Health;
+		}
+
+		Type* getWeaknesses()
+		{
+			return Weaknesses;
+		}
+
+		Type* getResistances()
+		{
+			return Resistances;
+		}
+
+		Attack* getAttacks()
+		{
+			return Attacks;
+		}
+
 		Attack pickAttack()
 		{
-			int attackSize = sizeof(Attacks) / sizeof(int);
-			int randominteger = 2;
+			srand(time(NULL));
+			int randominteger = rand() % sizeof(Attacks) / sizeof(int);
 
-			Attack fix;
-			return fix;
+			return Attacks[randominteger];
+		}
+
+		/*
+			CHECKERS
+		*/
+
+		bool checkWeaknesses(Type _weakness)
+		{
+			for (int i = 0; i < sizeof(Weaknesses) / sizeof(int); i++)
+			{
+				if (Weaknesses[i] == _weakness)
+				{
+					return true;
+				}
+			}
+
+			return false;
+		}
+
+		bool checkResistances(Type _resistance)
+		{
+			for (int i = 0; i < sizeof(Resistances) / sizeof(int); i++)
+			{
+				if (Resistances[i] == _resistance)
+				{
+					return true;
+				}
+			}
+
+			return false;
 		}
 
 		void attackEnemy(Pokemon &_enemy, Attack _attack)
 		{
+			int damage = _attack.Damage;
 
+			cout << "ORIGINAL: " << damage << endl;
+
+			if (_enemy.checkWeaknesses(_attack.Kind))
+			{
+				damage *= 1.25;
+			}
+
+			if (_enemy.checkResistances(_attack.Kind))
+			{
+				damage /= 0.75;
+			}
+
+			cout << "NOW: " << damage;
+
+			_enemy.updateHealth('-', damage);
 		}
 	};
 }

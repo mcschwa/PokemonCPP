@@ -1,4 +1,5 @@
 #include <iostream>
+#include <stdlib.h>
 #include "Pokemons.h"
 #include "Types.h"
 #include "Attacks.h"
@@ -10,18 +11,17 @@ using namespace Attacks;
 
 int main()
 {
-	Type weaknesses[2] = { Water, Ground };
-	Type resistances[2] = { Fire, Flying };
+	Type weaknessesC[2] = { Water, Water };
+	Type resistancesC[2] = { Fire, Flying };
+	Type weaknessesW[2] = { Fire, Fire };
+	Type resistancesW[2] = { Water, Flying };
 	Attack AttacksF[2] = { firePunch, fireSwing };
 	Attack AttacksW[2] = { waterPunch, waterSwing };
 
-	Pokemon Charmender("Charmender", Fire, 40, weaknesses, resistances, AttacksF);
-	Pokemon Watermon("Watermon", Water, 40, resistances, weaknesses, AttacksW);
+	Pokemon Charmender("Charmender", Fire, 40, weaknessesC, resistancesC, AttacksF);
+	Pokemon Watermon("Watermon", Water, 40, weaknessesW, resistancesW, AttacksW);
 
-	while (1==1)
-	{
-		cout << typeToString(getRandomType()) << endl;
-	}
+	Charmender.attackEnemy(Watermon, Charmender.pickAttack());
 
 	return 1;
 }

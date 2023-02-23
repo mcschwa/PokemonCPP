@@ -29,6 +29,7 @@ namespace Types
 
 	Type getRandomType()
 	{
+		srand(time(NULL));
 		return Type(rand() % 18);
 	}
 
