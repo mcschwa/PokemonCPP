@@ -26,4 +26,10 @@ namespace Attacks
 			Damage = _damage;
 		}
 	};
+
+	Attack firePunch("Firepunch", Fire, 35);
+	Attack fireSwing("Fireswing", Fire, 25);
+
+	Attack waterPunch("Waterpunch", Water, 35);
+	Attack waterSwing("Waterswing", Water, 25);
 }

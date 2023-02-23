@@ -72,6 +72,15 @@ namespace Pokemons
 			}
 		}
 
+		Attack pickAttack()
+		{
+			int attackSize = sizeof(Attacks) / sizeof(int);
+			int randominteger = 2;
+
+			Attack fix;
+			return fix;
+		}
+
 		void attackEnemy(Pokemon &_enemy, Attack _attack)
 		{
 

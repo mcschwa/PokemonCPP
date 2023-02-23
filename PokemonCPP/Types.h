@@ -29,7 +29,7 @@ namespace Types
 
 	Type getRandomType()
 	{
-		return Type(rand() % 10);
+		return Type(rand() % 18);
 	}
 
 	string typeToString(Type _type)
