@@ -10,7 +10,12 @@ using namespace Attacks;
 
 namespace Pokemons
 {
-	class Pokemon
+	class Pokemons
+	{
+
+	};
+
+	class Pokemon : Pokemons
 	{
 	public:
 		string Name;
